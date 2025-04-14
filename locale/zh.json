@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "firstname": "维特",
+    "lastname": "桑",
+    "home": "首页",
+    "guestbook": "留言簿",
+    "projects": "项目",
+    "contact": "联系我"
+  },
+  "home": {
+    "title": "欢迎来到我的作品集",
+    "description": "探索我的开发、设计和创意世界。"
+  },
+  "projects": {
+    "title": "我的项目",
+    "description": "以下是我最近构建的一些精彩项目。"
+  },
+  "guestbook": {
+    "title": "留言簿",
+    "description": "欢迎留言和反馈您的想法。"
+  }
+}

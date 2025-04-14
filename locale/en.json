@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "firstname": "Vert",
+    "lastname": "San",
+    "home": "Home",
+    "guestbook": "Guestbook",
+    "projects": "Projects",
+    "contact": "Contact Me"
+  },
+  "home": {
+    "title": "Welcome to my portfolio",
+    "description": "Explore my world of development, design, and creativity."
+  },
+  "projects": {
+    "title": "My Projects",
+    "description": "Here are some of the cool things I've built recently."
+  },
+  "guestbook": {
+    "title": "Guestbook",
+    "description": "Feel free to leave your thoughts and feedback here."
+  }
+}
