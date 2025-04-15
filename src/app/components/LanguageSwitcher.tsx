@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,27 +12,23 @@ import { useTranslation } from "react-i18next";
 import i18n from "@/lib/181n"; // Ensure this path is correct
 
 export const LanguageSwitcher = () => {
-  const router = useRouter();
-  const [lang, setLang] = useState("en"); // Default language
+  const [lang, setLang] = useState("km"); // Default language
   const { t } = useTranslation();
 
   useEffect(() => {
-    const lang = localStorage.getItem("language");
-    if (lang && i18n.language !== lang) {
-      i18n.changeLanguage(lang);
+    const savedLang = localStorage.getItem("language") || "km";
+    if (i18n.language !== savedLang) {
+      i18n.changeLanguage(savedLang);
     }
+    setLang(savedLang);
   }, []);
 
   const handleLanguageChange = (lng: string) => {
-    setLang(lng);
-
-    // Check if window is available (client-side only)
-    if (typeof window !== "undefined") {
+    if (i18n.language !== lng) {
+      i18n.changeLanguage(lng);
       localStorage.setItem("language", lng);
+      setLang(lng); // Update state to re-render component
     }
-
-    // Reload to apply language change
-    window.location.reload(); // Or use custom reload logic
   };
 
   // Define the language logos
@@ -51,13 +46,13 @@ export const LanguageSwitcher = () => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => handleLanguageChange("en")}>
-          <img src={languageLogos.en} alt="English" className="w-5 h-5 mr-2" />
-          English
-        </DropdownMenuItem>
         <DropdownMenuItem onClick={() => handleLanguageChange("km")}>
           <img src={languageLogos.km} alt="Khmer" className="w-5 h-5 mr-2" />
           ភាសាខ្មែរ
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => handleLanguageChange("en")}>
+          <img src={languageLogos.en} alt="English" className="w-5 h-5 mr-2" />
+          English
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => handleLanguageChange("zh")}>
           <img src={languageLogos.zh} alt="Chinese" className="w-5 h-5 mr-2" />

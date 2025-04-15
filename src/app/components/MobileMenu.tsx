@@ -17,7 +17,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { ModeToggle } from "@/components/ui/toggle-light-black";
-import { LanguageSwitcher } from "./LanguageSwitcher";
+import { LanguageSwitcher } from "@/src/app/components/LanguageSwitcher";
 
 export function MobileMenu() {
   const pathname = usePathname();
