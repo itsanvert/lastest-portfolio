@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Noto_Sans_Khmer } from "next/font/google"; // Import Noto Sans Khmer
+import {
+  Geist,
+  Geist_Mono,
+  Kantumruy_Pro,
+  Noto_Sans_Khmer,
+  Roboto,
+} from "next/font/google"; // Import Roboto font
 import "./globals.css";
 import { Navbar } from "./components/Navbar";
 import { ThemeProvider } from "next-themes";
@@ -14,10 +20,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const notoKhmer = Noto_Sans_Khmer({
+const notoKhmer = Kantumruy_Pro({
   variable: "--font-noto-khmer",
   subsets: ["khmer"], // Specify Khmer subset
   weight: ["400", "700"], // Optional: Specify font weights
+});
+
+const roboto = Roboto({
+  variable: "--font-roboto",
+  subsets: ["latin"],
+  weight: ["400", "700"], // Specify font weights
 });
 
 export const metadata: Metadata = {
@@ -49,7 +61,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} ${notoKhmer.variable}`}
+      className={`${geistSans.variable} ${geistMono.variable} ${notoKhmer.variable} ${roboto.variable}`}
     >
       <head>
         <link

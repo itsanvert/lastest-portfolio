@@ -12,7 +12,7 @@ import Link from "next/link";
 import React from "react";
 import { MobileMenu } from "./MobileMenu";
 import { ModeToggle } from "@/components/ui/toggle-light-black";
-import { LanguageSwitcher } from "@/src/app/components/LanguageSwitcher";
+import { LanguageSwitcher } from "@/app/components/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
 import "@/lib/181n";
 

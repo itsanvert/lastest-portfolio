@@ -1,12 +1,24 @@
 "use client";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Loader2 } from "lucide-react";
 import { useFormStatus } from "react-dom";
+import { postData } from "@/app/action";
+import { useTranslation } from "react-i18next";
+import { useRef } from "react";
 
 export function Form() {
+  const formRef = useRef<HTMLFormElement>(null);
   return (
-    <form className="flex justify-between gap-4 flex-col md:flex-row">
+    <form
+      ref={formRef}
+      action={async (formData) => {
+        await postData(formData);
+        formRef.current?.reset();
+      }}
+      className="flex justify-between gap-4 flex-col md:flex-row"
+    >
       <Input
         type="text"
         name="message"
